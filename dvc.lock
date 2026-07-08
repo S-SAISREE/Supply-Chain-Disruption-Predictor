@@ -52,15 +52,15 @@ stages:
     outs:
     - path: models/model.pkl
       hash: md5
-      md5: 6a55107d9fea4a1c3de94c4718900e95
-      size: 1180109
+      md5: a621e251e35fcddfc8de6fa8553e0f84
+      size: 1180127
   model_eval:
     cmd: python src/models/predict_model.py
     deps:
     - path: models/model.pkl
       hash: md5
-      md5: 6a55107d9fea4a1c3de94c4718900e95
-      size: 1180109
+      md5: a621e251e35fcddfc8de6fa8553e0f84
+      size: 1180127
     outs:
     - path: reports/metrics.json
       hash: md5
