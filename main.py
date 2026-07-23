@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware 
 from pydantic import BaseModel
 import pickle
 import pandas as pd
@@ -10,6 +11,16 @@ from src.data_model import SupplyChainInput
 app = FastAPI(
     title="Global Supply Chain Disruption Mitigation API",
     description="API for predicting mitigation actions for supply chain disruptions",
+)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
